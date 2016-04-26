@@ -81,22 +81,5 @@ namespace ZakupyProgram
                 }
             }
         }
-
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-            var okno = new OknoZamowienia2();
-
-            var wczytywacz = new WczytywaczExcela();
-
-            if (listView1.SelectedItems.Count > 0)
-            {
-                var wybrany = listView1.SelectedItems[0];
-                okno.Zamowienie = wczytywacz.Wczytaj(listView1.SelectedItems[0].Text);
-                //okno.Zamowienie = new WczytaneZamowienie();
-                okno.Show();
-                wybrany.Selected = true;
-                listView1.Select();
-            }
-        }
     }
 }
