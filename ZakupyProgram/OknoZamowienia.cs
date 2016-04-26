@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using Zakupy.Dane;
+using ZakupyProgram.UI;
 
 namespace ZakupyProgram
 {
@@ -29,7 +30,7 @@ namespace ZakupyProgram
                 {
                     if (grupa.IstniejePozycjaZPodanaIloscia())
                     {
-                        var node = new TreeNode(grupa.Nazwa + " " + DajOpisIlosci(grupa));
+                        var node = new GrupaTreeNode(grupa);
                         treeView1.Nodes.Add(node);
                         DodajPozycjeGrupy(node, grupa);
                     }
@@ -37,12 +38,6 @@ namespace ZakupyProgram
 
                 textBoxWartosc.Text = zamowienie.Wartosc.ToString();
             }
-        }
-
-        private string DajOpisIlosci(GrupaProduktow grupa)
-        {
-            var ile = grupa.Pozycje.Where(o => o.Ilosc > 0).Sum(o => o.Ilosc);
-            return " Liczba zamówionych = " + ile;
         }
 
         private void DodajPozycjeGrupy(TreeNode node, GrupaProduktow grupa)

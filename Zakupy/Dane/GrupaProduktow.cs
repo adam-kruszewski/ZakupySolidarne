@@ -78,7 +78,18 @@ namespace Zakupy.Dane
 
         public bool IstniejePozycjaZPodanaIloscia()
         {
-            return Pozycje.Any(o => o.Ilosc.HasValue && o.Ilosc > 0);
+            return Pozycje.Any(o => JestPodanaIlosc(o));
+        }
+
+        public int LiczbaPozycji()
+        {
+            var zIlosciami = Pozycje.Where(o => JestPodanaIlosc(o));
+            return zIlosciami.Sum(o => o.Ilosc.Value);
+        }
+
+        private static bool JestPodanaIlosc(Pozycja o)
+        {
+            return o.Ilosc.HasValue && o.Ilosc > 0;
         }
     }
 }
