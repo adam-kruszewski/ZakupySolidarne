@@ -6,6 +6,7 @@ namespace Zakupy.Dane
     public class WczytaneZamowienie
     {
         public IList<GrupaProduktow> GrupyProduktow { get; set; }
+        public string Nazwa { get; set; }
 
         public WczytaneZamowienie()
         {

@@ -22,6 +22,9 @@ namespace ZakupyProgram
             set
             {
                 zamowienie = value;
+                if (zamowienie != null && !string.IsNullOrEmpty(zamowienie.Nazwa))
+                    Text = "Zamówienie: " + zamowienie.Nazwa;
+
                 foreach (var grupa in zamowienie.GrupyProduktow)
                 {
                     if (grupa.IstniejePozycjaZPodanaIloscia())

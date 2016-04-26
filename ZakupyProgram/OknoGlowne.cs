@@ -40,7 +40,7 @@ namespace ZakupyProgram
             var sumowacz = new Sumowacz();
             var ostrzezenia = new List<string>();
             var zsumowaneZamowienie = sumowacz.SumujZamowienia(listaPlikow, ostrzezenia);
-
+            zsumowaneZamowienie.Nazwa = "Sumaryczne zamówienie";
             var oknoSumowania = new OknoZamowienia();
             oknoSumowania.Zamowienie = zsumowaneZamowienie;
             oknoSumowania.ShowDialog();

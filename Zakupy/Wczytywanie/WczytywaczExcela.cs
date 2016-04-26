@@ -14,6 +14,7 @@ namespace Zakupy.Wczytywanie
         public WczytaneZamowienie Wczytaj(string sciezka)
         {
             var wynik = new WczytaneZamowienie();
+            wynik.Nazwa = DajNazweZamowienia(sciezka);
             var wynikOtwarcia = DajSheetZamowienia(sciezka);
             var sheetZamowienia = wynikOtwarcia.Worksheet;
 
@@ -36,6 +37,12 @@ namespace Zakupy.Wczytywanie
 
             wynikOtwarcia.Package.Dispose();
             return wynik;
+        }
+
+        private string DajNazweZamowienia(string sciezka)
+        {
+            var fileInfo = new FileInfo(sciezka);
+            return fileInfo.Name;
         }
 
         private Pozycja DodajNowaPozycje(
