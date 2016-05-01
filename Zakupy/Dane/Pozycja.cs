@@ -13,6 +13,8 @@ namespace Zakupy.Dane
             get
             {
                 var doParsowania = Cena.Replace(".", ",");
+                if (string.IsNullOrEmpty(doParsowania))
+                    return 0;
                 return Convert.ToDecimal(double.Parse(doParsowania));
             }
         }

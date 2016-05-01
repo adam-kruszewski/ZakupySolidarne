@@ -33,7 +33,7 @@ namespace Zakupy.Dane
         private int? SzukajMinimalnychIlosciWNazwie()
         {
             string miedzyNawiasami = SzukajAdnotacjiWNawiasie();
-            if (!miedzyNawiasami.ToLower().Contains("min"))
+            if (miedzyNawiasami == null || !miedzyNawiasami.ToLower().Contains("min"))
                 return null;
 
             return SzukajLiczbyWTekscie(miedzyNawiasami);

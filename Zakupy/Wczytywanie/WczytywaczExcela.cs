@@ -81,11 +81,14 @@ namespace Zakupy.Wczytywanie
             var komorka = sheet.Cell(aktIndexWiersza, KolumnaCena);
             var wartosc = komorka.Value;
 
+            if (sheet.Cell(aktIndexWiersza, KolumnaNazwaPozycji).Value == "--")
+                return false;
             if (string.IsNullOrEmpty(wartosc))
                 return true;
 
             if (wartosc.All(o => char.IsDigit(o) || o == '.' || o == ','))
                 return false;
+
             return true;
 
         }
